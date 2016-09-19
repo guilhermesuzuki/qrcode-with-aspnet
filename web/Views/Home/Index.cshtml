@@ -1,0 +1,16 @@
+﻿@model string[]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QR Code with ASP.NET</title>
+</head>
+<body>
+    <div>
+        @foreach (var url in Model)
+        {
+            <img src="~/qrcode?url=@url" alt="@url" title="@url" />
+        }
+    </div>
+</body>
+</html>
