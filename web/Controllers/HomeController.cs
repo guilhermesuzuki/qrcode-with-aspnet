@@ -15,7 +15,16 @@ namespace web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(new string[] { "www.uol.com.br", "http://cp24.com", "http://guilhermesuzuki.com" });
+            string version = string.Empty;
+            for (int i = 0; i <= 500; i++) version = string.Concat(version, "1");
+
+            return View(new string[] {
+                "www.uol.com.br",
+                "http://cp24.com",
+                "http://guilhermesuzuki.com",
+                "http://guilhermesuzuki.com/posts/details/a9821d1c-19f6-41a4-aab1-63fef4aa7d7b",
+                $"http://guilhermesuzuki.com/posts/details/a9821d1c-19f6-41a4-aab1-63fef4aa7d7b?v={version}",
+            });
         }
 
         [HttpGet]
