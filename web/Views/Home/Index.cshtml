@@ -7,9 +7,17 @@
 </head>
 <body>
     <div>
+        <h1>QR Codes (controller)</h1>
         @foreach (var url in Model)
         {
             <img src="~/qrcode?url=@url" alt="@url" title="@url" />
+        }
+    </div>
+    <div>
+        <h1>QR Codes (asp.net http handler)</h1>
+        @foreach (var url in Model)
+        {
+            <img src="~/image.qrcode?url=@url" alt="@url" title="@url" />
         }
     </div>
 </body>
