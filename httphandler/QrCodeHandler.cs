@@ -44,7 +44,7 @@ namespace httphandler
         {
             try
             {
-                var url = context.Request["url"];
+                var url = context.Request.QueryString["url"];
                 if (string.IsNullOrWhiteSpace(url) == false)
                 {
                     var encoder = new QrEncoder(ErrorCorrectionLevel.L);
@@ -62,14 +62,18 @@ namespace httphandler
                         context.Response.Flush();
                         context.Response.End();
                     }
+
+                    return;
                 }
             }
             catch
             {
-                context.Response.Clear();
-                context.Response.ContentType = "image/png";
-                context.Response.StatusCode = 404;
+                
             }
+
+            context.Response.Clear();
+            context.Response.ContentType = "image/png";
+            context.Response.StatusCode = 404;
         }
     }
 }
